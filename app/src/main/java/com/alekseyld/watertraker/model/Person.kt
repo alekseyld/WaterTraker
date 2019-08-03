@@ -1,5 +1,10 @@
 package com.alekseyld.watertraker.model
 
+data class Person(val sex: Sex,
+                  val height: Int,
+                  val weight: Int,
+                  val age: Int)
+
 enum class Sex {
     Male, Female;
 
@@ -17,8 +22,3 @@ fun sexFromInt(num: Int) : Sex {
         else -> Sex.Male
     }
 }
-
-data class Person(val sex: Sex,
-                  val height: Int,
-                  val weight: Int,
-                  val age: Int)

@@ -28,19 +28,19 @@
                 />
 
         <RadioGroup
-                android:id="@+id/radioSex"
+                android:id="@+id/radio_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
             <RadioButton
-                    android:id="@+id/radioMale"
+                    android:id="@+id/radio_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Мужчина"
                     android:checked="true" />
 
             <RadioButton
-                    android:id="@+id/radioFemale"
+                    android:id="@+id/radio_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Женщина" />

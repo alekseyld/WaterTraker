@@ -1,7 +1,7 @@
 package ru.alekseyld.greenhouseapp.di
 
 import android.app.Application
-import android.arch.lifecycle.ViewModelProvider
+import android.content.Context
 import android.content.SharedPreferences
 import dagger.BindsInstance
 import dagger.Component
@@ -19,4 +19,5 @@ interface AppComponent {
     }
 
     fun getSharedPreference(): SharedPreferences
+    fun getApplicationContent(): Context
 }
