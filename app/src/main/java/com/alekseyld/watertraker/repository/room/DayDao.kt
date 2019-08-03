@@ -17,6 +17,6 @@ interface DayDao {
     fun getAll(): Single<List<Day>>
 
     @Query("SELECT * FROM day WHERE date = :currentDate")
-    fun getCurrent(currentDate: String): Single<Day?>
+    fun getCurrent(currentDate: String): Single<Day>
 
 }

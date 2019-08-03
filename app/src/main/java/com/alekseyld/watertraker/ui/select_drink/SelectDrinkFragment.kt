@@ -69,7 +69,7 @@ class SelectDrinkFragment : BaseBottomDialogFragment<SelectDrinkPresenter, Selec
         AlertDialog.Builder(context)
             .setView(view)
             .setPositiveButton("Добавить") { _, _ ->
-                drink.volume = view.doze.progress
+                drink.volume = view.doze.progress * 0.001
                 presenter.addDrink(drink)
             }
             .setNegativeButton("Отмена") { dialog, _ ->

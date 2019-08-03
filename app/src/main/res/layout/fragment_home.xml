@@ -38,8 +38,7 @@
             <TextView
                     android:id="@+id/day"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="День 1"/>
+                    android:layout_height="wrap_content"/>
 
             <TextView
                     android:id="@+id/norm"
@@ -48,16 +47,14 @@
                     android:textColor="@color/colorPrimary"
                     android:layout_marginTop="5dp"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:text="0 из 2,04 л"/>
+                    android:textStyle="bold"/>
 
             <TextView
                     android:id="@+id/procent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="40sp"
-                    android:text="0%"/>
+                    android:textSize="40sp"/>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.alekseyld.watertraker.ui.select_drink
 
+import com.alekseyld.watertraker.service.IDayService
 import com.alekseyld.watertraker.service.IDrinkService
 import dagger.Module
 import dagger.Provides
@@ -10,6 +11,7 @@ class SelectDrinkModule {
 
     @PerScreen
     @Provides
-    fun getPresenter(drinkService: IDrinkService) = SelectDrinkPresenter(drinkService)
+    fun getPresenter(drinkService: IDrinkService,
+                     dayService: IDayService) = SelectDrinkPresenter(drinkService, dayService)
 
 }

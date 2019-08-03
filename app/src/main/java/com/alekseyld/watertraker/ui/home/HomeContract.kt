@@ -4,13 +4,17 @@ interface HomeContract {
 
     interface View {
 
-        fun fillDay(dayText: String)
-        fun fillNorm(from: String, normText: String)
+        fun personSetted()
+
+        fun fillDay(dayText: Int)
+        fun fillNorm(from: Double, normText: Double)
         fun fillProcent(procentText: String)
 
     }
 
     interface Presenter {
+
+        fun init()
 
     }
 }

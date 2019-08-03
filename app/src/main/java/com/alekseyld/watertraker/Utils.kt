@@ -17,6 +17,6 @@ fun calculateNorm(person: Person) : Double {
 
 fun Double.format(digits: Int) = java.lang.String.format("%.${digits}f", this)
 
-fun String.parseDate() = SimpleDateFormat("dd-MM-yyyy").parse(this)
+fun String.parseDate() = SimpleDateFormat("dd.MM.yyyy").parse(this)
 
-fun Date.format() = SimpleDateFormat("dd-MM-yyyy").format(this)
+fun Date.format() = SimpleDateFormat("dd.MM.yyyy").format(this)

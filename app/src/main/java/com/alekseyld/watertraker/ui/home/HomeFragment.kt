@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.alekseyld.watertraker.App
 import com.alekseyld.watertraker.R
+import com.alekseyld.watertraker.format
 import com.alekseyld.watertraker.ui.select_drink.SelectDrinkFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import ru.nvtech.sedkp.base.BaseFragment
@@ -18,12 +19,12 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
         }
     }
 
-    override fun fillDay(dayText: String) {
+    override fun fillDay(dayText: Int) {
         day.text = "День $dayText"
     }
 
-    override fun fillNorm(from: String, normText: String) {
-        norm.text = "$from из $normText л"
+    override fun fillNorm(from: Double, normText: Double) {
+        norm.text = "${from.format(2)} из ${normText.format(2)} л"
     }
 
     override fun fillProcent(procentText: String) {
@@ -45,5 +46,6 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
 
     override fun attachView() {
         presenter.attachView(this)
+        presenter.init()
     }
 }

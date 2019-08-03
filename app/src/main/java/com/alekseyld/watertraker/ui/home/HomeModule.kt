@@ -1,5 +1,6 @@
 package com.alekseyld.watertraker.ui.home
 
+import com.alekseyld.watertraker.service.IDayService
 import com.alekseyld.watertraker.service.IPersonService
 import dagger.Module
 import dagger.Provides
@@ -10,6 +11,7 @@ class HomeModule {
 
     @PerScreen
     @Provides
-    fun getPresenter(personService: IPersonService) = HomePresenter(personService)
+    fun getPresenter(personService: IPersonService,
+                     dayService: IDayService) = HomePresenter(personService, dayService)
 
 }

@@ -18,8 +18,10 @@ class RoomDayRepository(private val dayDao: DayDao) : IDayRepository {
 
     override fun getCurrent(): Single<Day> {
         return dayDao.getCurrent(Date().format())
-            .flatMap {
-                if (it != null) return@flatMap Single.just(it)
+            .onErrorResumeNext {
+                return@onErrorResumeNext Single.just(Day(date = "", volume = .0, id = -1L))
+            }.flatMap {
+                if (it.id != -1L && it.date != "") return@flatMap Single.just(it)
 
                 val day = Day(date = Date().format(), volume = .0)
 

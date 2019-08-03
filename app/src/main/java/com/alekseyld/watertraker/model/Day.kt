@@ -9,5 +9,5 @@ data class Day (
 
     val date: String,
     //val drinks: List<Drink>,
-    val volume: Double
+    var volume: Double
 )
