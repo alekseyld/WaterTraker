@@ -18,4 +18,8 @@ class StatisticsFragment : BaseFragment<StatisticsPresenter, StatisticsContract.
 
     override fun onBackKeyPressed() {
     }
+
+    override fun attachView() {
+        presenter.attachView(this)
+    }
 }

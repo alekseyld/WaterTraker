@@ -1,10 +1,8 @@
 package com.alekseyld.watertraker.ui.home
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import com.alekseyld.watertraker.App
 import com.alekseyld.watertraker.R
-import kotlinx.android.synthetic.main.fragment_home.*
 import ru.nvtech.sedkp.base.BaseFragment
 
 class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContract.View {
@@ -31,5 +29,9 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
     }
 
     override fun onBackKeyPressed() {
+    }
+
+    override fun attachView() {
+        presenter.attachView(this)
     }
 }

@@ -1,6 +1,6 @@
 package com.alekseyld.watertraker.ui.profile
 
-import com.alekseyld.watertraker.ui.home.HomePresenter
+import com.alekseyld.watertraker.service.IPersonService
 import dagger.Module
 import dagger.Provides
 import ru.alekseyld.greenhouseapp.di.PerScreen
@@ -10,6 +10,6 @@ class ProfileModule {
 
     @PerScreen
     @Provides
-    fun getPresenter() = ProfilePresenter()
+    fun getPresenter(personService: IPersonService) = ProfilePresenter(personService)
 
 }

@@ -3,7 +3,8 @@ package com.alekseyld.watertraker.model
 data class Person(val sex: Sex,
                   val height: Int,
                   val weight: Int,
-                  val age: Int)
+                  val age: Int,
+                  var norm: Double)
 
 enum class Sex {
     Male, Female;

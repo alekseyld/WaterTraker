@@ -1,7 +1,6 @@
 package com.alekseyld.watertraker.ui
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
@@ -10,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.alekseyld.watertraker.R
-import com.alekseyld.watertraker.R.id.drawer_layout
 import com.alekseyld.watertraker.ui.home.HomeFragment
 import com.alekseyld.watertraker.ui.profile.ProfileFragment
 import com.alekseyld.watertraker.ui.statistics.StatisticsFragment
@@ -86,6 +84,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun backToHome() {
+        nav_view.setCheckedItem(R.id.nav_home)
+        replaceFragmentToContainer(HomeFragment())
     }
 
     fun replaceFragmentToContainer(fragment: Fragment, checkSubContainer: Boolean = false, subContainerID: Int = -1) {

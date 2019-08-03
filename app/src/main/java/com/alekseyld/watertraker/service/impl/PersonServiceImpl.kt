@@ -1,23 +1,19 @@
 package com.alekseyld.watertraker.service.impl
 
 import com.alekseyld.watertraker.model.Person
-import com.alekseyld.watertraker.model.Sex
+import com.alekseyld.watertraker.repository.IPersonRepository
 import com.alekseyld.watertraker.service.IPersonService
+import io.reactivex.Completable
+import io.reactivex.Single
 
-class PersonServiceImpl : IPersonService {
+class PersonServiceImpl(val personRepository: IPersonRepository) : IPersonService {
 
-    var mock_person = Person(sex = Sex.Male, age = 20, height = 190, weight = 61)
-
-    override fun save(person: Person) {
-
-        mock_person = person
-
+    override fun save(person: Person) : Completable {
+        return Completable.fromAction {
+            personRepository.savePerson(person)
+        }
     }
 
-    override fun get(): Person {
+    override fun get(): Single<Person> = Single.just(personRepository.getPerson())
 
-        return mock_person
-
-
-    }
 }

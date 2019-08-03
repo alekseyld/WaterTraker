@@ -28,9 +28,11 @@ abstract class BaseFragment<TPresenter : MvpPresenter<TView>, TView> : Fragment(
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(getLayoutId(), container, false)
         inject
+        attachView()
         return view
     }
 
+    abstract fun attachView()
 
     override fun onResume() {
         super.onResume()
