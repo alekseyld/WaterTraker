@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 repositories {
     maven { url 'https://jitpack.io' }
 }
@@ -29,6 +31,10 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -41,6 +47,10 @@ dependencies {
 
     compileOnly "com.google.dagger:dagger:2.15"
     kapt "com.google.dagger:dagger-compiler:2.15"
+
+    // Dagger Android
+    implementation "com.google.dagger:dagger-android:2.15"
+    kapt "com.google.dagger:dagger-android-processor:2.15"
 
     implementation "android.arch.persistence.room:runtime:1.1.1"
     implementation "android.arch.persistence.room:rxjava2:1.1.1"

@@ -10,12 +10,13 @@ import android.graphics.drawable.GradientDrawable
 import android.support.v7.widget.SwitchCompat
 import android.util.AttributeSet
 import android.util.TypedValue
+import com.alekseyld.watertraker.R
 
 class SwitchCompatEx : SwitchCompat {
 
     companion object {
 
-        val TRACK_COLOR = 0xFFFFFFFF.toInt()
+        val TRACK_COLOR = 0x000FFFFF.toInt()
         val TRACK_STROKE_WIDTH = 2f.dp2Px.toInt()
         val TRACK_STROKE_COLOR = 0xFF00A1FF.toInt()
         val TRACK_LABEL_COLOR = 0xFF00A1FF.toInt()

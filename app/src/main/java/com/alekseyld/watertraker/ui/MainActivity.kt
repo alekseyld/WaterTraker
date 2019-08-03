@@ -3,14 +3,20 @@ package com.alekseyld.watertraker.ui
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.alekseyld.watertraker.R
+import com.alekseyld.watertraker.R.id.drawer_layout
+import com.alekseyld.watertraker.ui.home.HomeFragment
+import com.alekseyld.watertraker.ui.profile.ProfileFragment
+import com.alekseyld.watertraker.ui.statistics.StatisticsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import ru.nvtech.sedkp.base.BaseFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -18,11 +24,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar,
@@ -33,12 +34,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        if (supportFragmentManager.findFragmentById(R.id.fragment_container) == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).addToBackStack(null).commit()
+        }
     }
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
+        }
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+            (fragment as? BaseFragment<*, *>)?.onBackKeyPressed()
+        }
+        else {
             super.onBackPressed()
         }
     }
@@ -63,17 +74,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-
+                replaceFragmentToContainer(HomeFragment())
             }
             R.id.nav_statistics -> {
-
+                replaceFragmentToContainer(StatisticsFragment())
             }
             R.id.nav_profile -> {
-
+                replaceFragmentToContainer(ProfileFragment())
             }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun replaceFragmentToContainer(fragment: Fragment, checkSubContainer: Boolean = false, subContainerID: Int = -1) {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, "container").addToBackStack(null).commit()
     }
 }
