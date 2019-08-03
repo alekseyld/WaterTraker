@@ -4,7 +4,8 @@ data class Person(val sex: Sex,
                   val height: Int,
                   val weight: Int,
                   val age: Int,
-                  var norm: Double)
+                  var norm: Double,
+                  val date: String)
 
 enum class Sex {
     Male, Female;

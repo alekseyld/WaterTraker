@@ -14,6 +14,7 @@ class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : 
         const val HEIGHT_KEY = "height"
         const val WEIGHT_KEY = "weight"
         const val NORM_KEY = "norm"
+        const val DATE_KEY = "date"
 
     }
 
@@ -24,8 +25,14 @@ class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : 
         val height = sharedPreferences.getInt(HEIGHT_KEY, 0)
         val weight = sharedPreferences.getInt(WEIGHT_KEY, 0)
         val norm = sharedPreferences.getFloat(NORM_KEY, 0f)
+        val date = sharedPreferences.getString(DATE_KEY, "")!!
 
-        return Person(sex = sex, age = age, height = height, weight = weight, norm = norm.toDouble())
+        return Person(sex = sex,
+            age = age,
+            height = height,
+            weight = weight,
+            norm = norm.toDouble(),
+            date = date)
     }
 
     override fun savePerson(person: Person) {
@@ -36,6 +43,7 @@ class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : 
             .putInt(HEIGHT_KEY, person.height)
             .putInt(WEIGHT_KEY, person.weight)
             .putFloat(NORM_KEY, person.norm.toFloat())
+            .putString(DATE_KEY, person.date)
             .apply()
     }
 }

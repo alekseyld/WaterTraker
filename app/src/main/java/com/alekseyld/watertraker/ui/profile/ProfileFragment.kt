@@ -13,6 +13,7 @@ import com.warkiz.widget.OnSeekChangeListener
 import com.warkiz.widget.SeekParams
 import kotlinx.android.synthetic.main.fragment_profile.*
 import ru.nvtech.sedkp.base.BaseFragment
+import java.util.*
 
 class ProfileFragment : BaseFragment<ProfilePresenter, ProfileContract.View>(), ProfileContract.View {
 
@@ -88,7 +89,9 @@ class ProfileFragment : BaseFragment<ProfilePresenter, ProfileContract.View>(), 
             height.progress,
             weight.progress,
             age.progress,
-            .0)
+            .0,
+            Date().format()
+        )
 
     }
 

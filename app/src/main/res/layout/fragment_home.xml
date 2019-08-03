@@ -36,11 +36,13 @@
                 android:padding="10dp">
 
             <TextView
+                    android:id="@+id/day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="День 1"/>
 
             <TextView
+                    android:id="@+id/norm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
@@ -50,6 +52,7 @@
                     android:text="0 из 2,04 л"/>
 
             <TextView
+                    android:id="@+id/procent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
