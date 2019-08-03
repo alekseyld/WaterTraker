@@ -6,14 +6,10 @@ import com.alekseyld.watertraker.service.IPersonService
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class PersonServiceImpl(val personRepository: IPersonRepository) : IPersonService {
+class PersonServiceImpl(private val personRepository: IPersonRepository) : IPersonService {
 
-    override fun save(person: Person) : Completable {
-        return Completable.fromAction {
-            personRepository.savePerson(person)
-        }
-    }
+    override fun save(person: Person) : Completable = personRepository.savePerson(person)
 
-    override fun get(): Single<Person> = Single.just(personRepository.getPerson())
+    override fun get(): Single<Person> = personRepository.getPerson()
 
 }

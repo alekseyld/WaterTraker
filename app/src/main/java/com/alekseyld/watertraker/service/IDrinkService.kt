@@ -1,9 +1,10 @@
 package com.alekseyld.watertraker.service
 
 import com.alekseyld.watertraker.model.Drink
+import io.reactivex.Single
 
 interface IDrinkService {
 
-    fun getAll() : List<Drink>
+    fun getAll() : Single<List<Drink>>
 
 }

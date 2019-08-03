@@ -13,6 +13,7 @@ interface SelectDrinkContract {
     interface Presenter {
 
         fun getDrinks()
+        fun addDrink(drink: Drink)
 
     }
 

@@ -9,7 +9,8 @@ import com.alekseyld.watertraker.model.Drink
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_drink.*
 
-class DrinksAdapter(private val drinks: List<Drink>)
+class DrinksAdapter(private val drinks: List<Drink>,
+                    private val callback: (Drink) -> Unit)
     : RecyclerView.Adapter<DrinksAdapter.DrinkViewHolder>() {
 
     inner class DrinkViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
@@ -17,7 +18,7 @@ class DrinksAdapter(private val drinks: List<Drink>)
         fun setDrink(drink: Drink) {
 
             image.setImageBitmap(drink.image)
-            name.text = drink.name
+            name.text = drink.name.replace(" ", "\n")
         }
     }
 
@@ -31,5 +32,9 @@ class DrinksAdapter(private val drinks: List<Drink>)
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
 
         holder.setDrink(drinks[position])
+
+        holder.containerView.setOnClickListener {
+            callback(drinks[position])
+        }
     }
 }

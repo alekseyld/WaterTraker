@@ -4,6 +4,8 @@ import android.content.SharedPreferences
 import com.alekseyld.watertraker.model.Person
 import com.alekseyld.watertraker.model.sexFromInt
 import com.alekseyld.watertraker.repository.IPersonRepository
+import io.reactivex.Completable
+import io.reactivex.Single
 
 class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : IPersonRepository {
 
@@ -18,7 +20,7 @@ class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : 
 
     }
 
-    override fun getPerson(): Person {
+    override fun getPerson(): Single<Person> {
 
         val sex = sexFromInt(sharedPreferences.getInt(SEX_KEY, 0))
         val age = sharedPreferences.getInt(AGE_KEY, 0)
@@ -27,23 +29,25 @@ class LocalPersonRepository(private val sharedPreferences: SharedPreferences) : 
         val norm = sharedPreferences.getFloat(NORM_KEY, 0f)
         val date = sharedPreferences.getString(DATE_KEY, "")!!
 
-        return Person(sex = sex,
+        return Single.just(
+            Person(sex = sex,
             age = age,
             height = height,
             weight = weight,
             norm = norm.toDouble(),
-            date = date)
+            date = date))
     }
 
-    override fun savePerson(person: Person) {
-
-        sharedPreferences.edit()
-            .putInt(SEX_KEY, person.sex.toInt())
-            .putInt(AGE_KEY, person.age)
-            .putInt(HEIGHT_KEY, person.height)
-            .putInt(WEIGHT_KEY, person.weight)
-            .putFloat(NORM_KEY, person.norm.toFloat())
-            .putString(DATE_KEY, person.date)
-            .apply()
+    override fun savePerson(person: Person) : Completable {
+        return Completable.fromAction {
+            sharedPreferences.edit()
+                .putInt(SEX_KEY, person.sex.toInt())
+                .putInt(AGE_KEY, person.age)
+                .putInt(HEIGHT_KEY, person.height)
+                .putInt(WEIGHT_KEY, person.weight)
+                .putFloat(NORM_KEY, person.norm.toFloat())
+                .putString(DATE_KEY, person.date)
+                .apply()
+        }
     }
 }

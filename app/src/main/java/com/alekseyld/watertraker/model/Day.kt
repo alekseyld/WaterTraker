@@ -1,9 +1,13 @@
 package com.alekseyld.watertraker.model
 
-import java.util.*
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 
+@Entity(tableName = "day")
 data class Day (
-    val date: Date,
-    val drinks: List<Drink>,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+
+    val date: String,
+    //val drinks: List<Drink>,
     val volume: Double
 )

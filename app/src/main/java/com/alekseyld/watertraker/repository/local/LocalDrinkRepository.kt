@@ -3,7 +3,7 @@ package com.alekseyld.watertraker.repository.local
 import com.alekseyld.watertraker.model.Drink
 import com.alekseyld.watertraker.repository.IDrinkRepository
 
-class LocalDrinkRepository : IDrinkRepository {
+class LocalDrinkRepository() : IDrinkRepository {
 
     var list : List<Drink>? = null
 

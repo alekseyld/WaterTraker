@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.alekseyld.watertraker.di.module.RepositoryModule
 import com.alekseyld.watertraker.di.module.ServiceModule
+import com.alekseyld.watertraker.service.IDayService
+import com.alekseyld.watertraker.service.IDrinkService
 import com.alekseyld.watertraker.service.IPersonService
 import dagger.BindsInstance
 import dagger.Component
@@ -25,4 +27,6 @@ interface AppComponent {
     fun getApplicationContent(): Context
 
     fun getPersonService() : IPersonService
+    fun getDayService() : IDayService
+    fun getDrinkService() : IDrinkService
 }
