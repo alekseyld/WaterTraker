@@ -9,12 +9,15 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.alekseyld.watertraker.R
+import com.alekseyld.watertraker.format
 import com.alekseyld.watertraker.ui.home.HomeFragment
 import com.alekseyld.watertraker.ui.profile.ProfileFragment
 import com.alekseyld.watertraker.ui.statistics.StatisticsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 import ru.nvtech.sedkp.base.BaseFragment
+import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,6 +87,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun fillNorm(norm: String) {
+        header_date.text = Date().format()
+        header_norm.text = norm
     }
 
     fun backToHome() {

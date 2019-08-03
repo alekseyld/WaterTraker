@@ -31,4 +31,6 @@ class RoomDayRepository(private val dayDao: DayDao) : IDayRepository {
     }
 
     override fun getAll(): Single<List<Day>> = dayDao.getAll()
+
+    override fun getLastFive(): Single<List<Day>> = dayDao.getLastFive()
 }

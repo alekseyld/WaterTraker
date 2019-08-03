@@ -1,6 +1,6 @@
 package com.alekseyld.watertraker.ui.statistics
 
-import com.alekseyld.watertraker.ui.home.HomePresenter
+import com.alekseyld.watertraker.service.IDayService
 import dagger.Module
 import dagger.Provides
 import ru.alekseyld.greenhouseapp.di.PerScreen
@@ -10,6 +10,6 @@ class StatisticsModule {
 
     @PerScreen
     @Provides
-    fun getPresenter() = StatisticsPresenter()
+    fun getPresenter(dayService: IDayService) = StatisticsPresenter(dayService)
 
 }

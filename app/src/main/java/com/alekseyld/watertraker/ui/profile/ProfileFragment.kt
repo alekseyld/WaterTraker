@@ -20,8 +20,12 @@ class ProfileFragment : BaseFragment<ProfilePresenter, ProfileContract.View>(), 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.getPerson()
+        activity?.title = getString(R.string.title_profile)
 
+        presenter.getPerson()
+    }
+
+    private fun setUpListeners() {
         addListenerOnButton()
 
         val listener = object : OnSeekChangeListener {
@@ -77,6 +81,8 @@ class ProfileFragment : BaseFragment<ProfilePresenter, ProfileContract.View>(), 
         weight_title.text = "Вес, кг - ${person.weight}"
         age.setProgress(person.age.toFloat())
         age_title.text = "Возвраст - ${person.age}"
+
+        setUpListeners()
     }
 
     override fun updateNorm(normText: String) {

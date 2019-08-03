@@ -19,4 +19,7 @@
     <string name="radio_female">Женщина</string>
     <string name="sex_title">Пол</string>
     <string name="text_wall">Для начала работы с приложением небоходимо ввести свои данные</string>
+    <string name="stats">Статистика</string>
+    <string name="home_title">Трекер воды</string>
+    <string name="title_profile">Расчет нормы</string>
 </resources>

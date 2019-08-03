@@ -12,4 +12,6 @@ interface IDayRepository {
 
     fun getAll() : Single<List<Day>>
 
+    fun getLastFive() : Single<List<Day>>
+
 }

@@ -17,6 +17,8 @@ interface IDayService {
 
     fun getAll() : Single<List<Day>>
 
+    fun getLastFive() : Single<List<Day>>
+
     fun addDrinkToCurrentDay(drink: Drink) : Completable
 
 }

@@ -16,6 +16,9 @@ interface DayDao {
     @Query("SELECT * FROM day")
     fun getAll(): Single<List<Day>>
 
+    @Query("SELECT * FROM day ORDER BY id asc LIMIT 5")
+    fun getLastFive(): Single<List<Day>>
+
     @Query("SELECT * FROM day WHERE date = :currentDate")
     fun getCurrent(currentDate: String): Single<Day>
 

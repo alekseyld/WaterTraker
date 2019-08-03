@@ -38,4 +38,6 @@ class DayServiceImpl(private val dayRepository: IDayRepository) : IDayService {
         currentDay.onNext(currentDay.value!!)
         return dayRepository.update(currentDay.value!!)
     }
+
+    override fun getLastFive(): Single<List<Day>> = dayRepository.getLastFive()
 }

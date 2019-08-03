@@ -55,7 +55,7 @@ class HomePresenter(private val personService: IPersonService,
         val personDate = person.date.parseDate()
         val currentDay = day.date.parseDate()
 
-        val diff = diffDate(personDate, currentDay) + 1
+        val diff = diffDate(currentDay, personDate) + 1
 
         viewMVP?.fillDay(diff)
         viewMVP?.fillNorm(day.volume, person.norm)

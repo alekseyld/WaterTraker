@@ -33,12 +33,14 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
 
         } else
         {
-            wall.animate().alpha(1.0f).setDuration(1000)
+            wall.animate().alpha(1.0f).duration = 1000
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.title = getString(R.string.home_title)
 
         fab.setOnClickListener {
             SelectDrinkFragment().show(fragmentManager, SelectDrinkFragment::class.java.name)
@@ -54,7 +56,11 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
     }
 
     override fun fillNorm(from: Double, normText: Double) {
-        norm?.text = "${from.format(2)} из ${normText.format(2)} л"
+        val n = "${from.format(2)} из ${normText.format(2)} л"
+
+        norm?.text = n
+
+        (activity as? MainActivity)?.fillNorm(n)
     }
 
     override fun fillProcent(procentText: String) {
