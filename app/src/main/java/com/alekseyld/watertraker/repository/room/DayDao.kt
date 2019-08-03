@@ -10,7 +10,7 @@ import io.reactivex.Single
 @Dao
 interface DayDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOrUpdate(day: Day)
 
     @Query("SELECT * FROM day")

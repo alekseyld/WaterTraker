@@ -10,4 +10,13 @@
     <string name="nav_statistics">Статистика</string>
     <string name="nav_profile">Профиль</string>
     <string name="select_drink">Выберите напиток</string>
+    <string name="button_set">Настроить!</string>
+    <string name="button_profile">Приступить!</string>
+    <string name="age_title">Возраст</string>
+    <string name="weight_title">Вес, кг</string>
+    <string name="height_title">Рост, см</string>
+    <string name="radio_male">Мужчина</string>
+    <string name="radio_female">Женщина</string>
+    <string name="sex_title">Пол</string>
+    <string name="text_wall">Для начала работы с приложением небоходимо ввести свои данные</string>
 </resources>

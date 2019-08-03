@@ -80,7 +80,7 @@ class ProfileFragment : BaseFragment<ProfilePresenter, ProfileContract.View>(), 
     }
 
     override fun updateNorm(normText: String) {
-        norm.text = "$normText л."
+        norm?.text = "$normText л."
     }
 
     override fun getNewPerson(): Person {

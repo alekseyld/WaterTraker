@@ -3,6 +3,7 @@ package com.alekseyld.watertraker.ui.home
 import com.alekseyld.watertraker.format
 import com.alekseyld.watertraker.model.Day
 import com.alekseyld.watertraker.model.Person
+import com.alekseyld.watertraker.model.Sex
 import com.alekseyld.watertraker.parseDate
 import com.alekseyld.watertraker.service.IDayService
 import com.alekseyld.watertraker.service.IPersonService
@@ -29,8 +30,10 @@ class HomePresenter(private val personService: IPersonService,
 
                         if (person.date != "") {
                             getCurrentDay()
-                            viewMVP?.personSetted()
+                            viewMVP?.personSetted(true)
                         }
+
+                        viewMVP?.personSetted(false)
                     },
                     {
                         it.printStackTrace()
@@ -75,6 +78,8 @@ class HomePresenter(private val personService: IPersonService,
     override fun init() {
         getPerson()
     }
+
+    override fun getSex(): Sex = person.sex
 
     private fun getCurrentDay() {
         disposables.add(

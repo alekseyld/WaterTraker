@@ -17,12 +17,19 @@ class DayServiceImpl(private val dayRepository: IDayRepository) : IDayService {
 
     override fun update(day: Day) : Completable = dayRepository.update(day)
 
-    override fun getCurrent(): Single<Day>
-            = dayRepository.getCurrent()
-                .map {
-                    currentDay.onNext(it)
-                    return@map it
-                }
+    override fun getCurrent(): Single<Day> {
+
+        if (currentDay.value != null) {
+            return Single.just(currentDay.value!!)
+        }
+
+        return dayRepository.getCurrent()
+            .map {
+                currentDay.onNext(it)
+                return@map it
+            }
+    }
+
 
     override fun getAll(): Single<List<Day>> = dayRepository.getAll()
 

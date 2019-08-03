@@ -91,6 +91,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         replaceFragmentToContainer(HomeFragment())
     }
 
+    fun toProfile() {
+        nav_view.setCheckedItem(R.id.nav_profile)
+        replaceFragmentToContainer(ProfileFragment())
+    }
+
     fun replaceFragmentToContainer(fragment: Fragment, checkSubContainer: Boolean = false, subContainerID: Int = -1) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, "container").addToBackStack(null).commit()
     }
