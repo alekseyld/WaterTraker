@@ -1,10 +1,10 @@
 package com.alekseyld.watertraker
 
-import android.app.Application
+import android.support.multidex.MultiDexApplication
 import ru.alekseyld.greenhouseapp.di.AppComponent
 import ru.alekseyld.greenhouseapp.di.DaggerAppComponent
 
-class App : Application() {
+class App : MultiDexApplication() {
     companion object {
         lateinit var component: AppComponent
             private set
