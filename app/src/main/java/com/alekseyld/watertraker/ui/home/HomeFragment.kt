@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
+import android.transition.TransitionManager
 import android.view.View
+import android.view.ViewGroup
 import com.alekseyld.watertraker.App
 import com.alekseyld.watertraker.R
 import com.alekseyld.watertraker.format
@@ -41,6 +43,8 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
     }
 
     private fun setHeight(view: View, height: Int) {
+        TransitionManager.beginDelayedTransition(view.parent as ViewGroup)
+
         val params = view.layoutParams as ConstraintLayout.LayoutParams
         params.height = height.px
         view.layoutParams = params

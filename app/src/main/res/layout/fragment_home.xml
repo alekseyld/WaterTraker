@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="@id/man"
             app:layout_constraintBottom_toBottomOf="@id/man"
             android:layout_margin="2dp"
-            android:background="@android:color/black"/>
+            android:background="@color/grey"/>
 
     <View
             android:id="@+id/water_up"
