@@ -1,4 +1,4 @@
-package com.alekseyld.watertraker.ui.select_drink.select_doze
+package com.alekseyld.watertraker.ui.select_drink.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

@@ -9,7 +9,7 @@ import com.alekseyld.watertraker.App
 import com.alekseyld.watertraker.R
 import com.alekseyld.watertraker.format
 import com.alekseyld.watertraker.model.Drink
-import com.alekseyld.watertraker.ui.select_drink.select_doze.DrinksAdapter
+import com.alekseyld.watertraker.ui.select_drink.adapter.DrinksAdapter
 import com.warkiz.widget.IndicatorSeekBar
 import com.warkiz.widget.OnSeekChangeListener
 import com.warkiz.widget.SeekParams
@@ -53,7 +53,7 @@ class SelectDrinkFragment : BaseBottomDialogFragment<SelectDrinkPresenter, Selec
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_select_dose, null)
 
         view.name.text = drink.name
-        view.doze_text.text = "+ 0 мл"
+        view.doze_text.text = "+ 1 мл"
         view.koef.text = "1 мл * ${drink.koef.format(1)}"
 
         view.doze.onSeekChangeListener = object : OnSeekChangeListener {

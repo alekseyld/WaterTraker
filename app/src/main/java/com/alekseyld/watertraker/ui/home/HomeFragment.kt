@@ -83,8 +83,10 @@ class HomeFragment : BaseFragment<HomePresenter, HomeContract.View>(), HomeContr
     }
 
     private fun calculateMan(procent: Int) {
-        val height = Math.min(procent * 485 / 100, 480)
-        setHeight(water_up, height)
+        water_up?.let {
+            val height = Math.min(procent * 485 / 100, 480)
+            setHeight(it, height)
+        }
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_home
